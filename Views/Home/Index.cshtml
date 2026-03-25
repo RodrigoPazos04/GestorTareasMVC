@@ -1,0 +1,34 @@
+﻿@model List<GestorTareas.Models.Tarea>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="text-center mb-3">Gestor de Tareas</h1>
+<p class="text-center text-muted">Organizá tus tareas de forma simple</p>
+
+<form method="post" asp-action="AgregarTarea" asp-controller="Home" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="nuevaTarea" class="form-control" placeholder="Escribí una tarea" />
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </div>
+</form>
+
+<ul class="list-group">
+    @foreach (var tarea in Model)
+    {
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+
+            <span>@tarea.Nombre</span>
+
+            <div>
+                <a asp-action="EditarTarea" asp-route-id="@tarea.Id" class="btn btn-sm btn-warning me-2">Editar</a>
+
+                <form method="post" asp-action="EliminarTarea" asp-controller="Home" style="display:inline;">
+                    <input type="hidden" name="id" value="@tarea.Id" />
+                    <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                </form>
+            </div>
+
+        </li>
+    }
+</ul>
