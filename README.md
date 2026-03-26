@@ -14,7 +14,3 @@ Aplicación web desarrollada con ASP.NET Core MVC que permite gestionar tareas.
 - ASP.NET Core MVC
 - Entity Framework Core
 - SQL Server
-
-## Autor
-
-Rodrigo Pazos
